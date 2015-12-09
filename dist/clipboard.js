@@ -147,7 +147,7 @@ exports.string = function(value) {
  * @param {Object} value
  * @return {Boolean}
  */
-exports.function = function(value) {
+exports.functionObject = function(value) {
     var type = Object.prototype.toString.call(value);
 
     return type === '[object Function]';
@@ -175,7 +175,7 @@ function listen(target, type, callback) {
         throw new TypeError('Second argument must be a String');
     }
 
-    if (!is.function(callback)) {
+    if (!is.functionObject(callback)) {
         throw new TypeError('Third argument must be a Function');
     }
 
